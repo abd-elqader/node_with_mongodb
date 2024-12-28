@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "f63c24e7-2070-47de-a070-6f8646633700",
+		"name": "assignment9Node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38259260",
+		"_collection_link": "https://lunar-shadow-487375.postman.co/workspace/Team-Workspace~220420b0-5425-429c-8bfe-8cc368d59e1a/collection/38259260-f63c24e7-2070-47de-a070-6f8646633700?action=share&source=collection_link&creator=38259260"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"title\": \"Future\",\r\n        \"author\":\"george Orwell\",\r\n        \"year\": 2020,\r\n        \"genres\": [\"Science Fiction\"]\r\n    },{\r\n        \"title\": \"To Kill a Mockingbird\",\r\n        \"author\":\"ali\",\r\n        \"year\": 1960,\r\n        \"genres\": [\"Classic\", \"Fiction\"]\r\n    },{\r\n        \"title\": \"Brave new world\",\r\n        \"author\":\"aldous huxley\",\r\n        \"year\": 2006,\r\n        \"genres\": [\"Dystopian\", \"Science Fiction\"]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/batch",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update books",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"update\" : \"update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/Future",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"Future"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/title?title=Brave New World",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"title"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Brave New World"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all by years",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/year?from=1930&to=2010",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"year"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "1930"
+								},
+								{
+									"key": "to",
+									"value": "2010"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all by genre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/genre?genre=Science Fiction",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"genre"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "Science Fiction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "skip limit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/skip-limit",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"skip-limit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "year integer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/year-integer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"year-integer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exclude genres",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/exclude-genres",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"exclude-genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all before year",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/before-year?year=2000",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"before-year"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggregate1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/aggregate1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"aggregate1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggregate2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/aggregate2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"aggregate2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggregate3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/aggregate2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"aggregate2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggregate4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"book1\",\r\n    \"author\":\"ali\",\r\n    \"year\": 1937,\r\n    \"genres\": [\"Fantasy\", \"Adventure\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/books/aggregate2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"aggregate2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "logs",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"123456789123456789123456\",\r\n    \"action\" : \"borrowed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/logs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "collection",
+			"item": [
+				{
+					"name": "books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collection/books",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collection",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collection/authors",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collection",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log capped",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collection/logs/capped",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collection",
+								"logs",
+								"capped"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create index",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/collection/books/index",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"collection",
+								"books",
+								"index"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

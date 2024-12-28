@@ -3,22 +3,15 @@ import { MongoClient } from "mongodb";
 const uri = "mongodb://127.0.0.1:27017";
 const dbName = "assignment9";
 
-let client = null;
-let database = null;
+const client = new MongoClient(uri);
+export const db = client.db(dbName);
 
-// Connect to MongoDB
-export const db = async () => {
+export const connectDB = async () => {
     try {
-        if (!client) {
-            client = await MongoClient.connect(uri);
-            console.log("Connected to MongoDB");
-        }
-        if (!database) {
-            database = client.db(dbName);
-        }
-        return database;
+        await client.connect();
+        console.log("Database connected");
     } catch (error) {
-        console.error("Failed to connect to MongoDB", error);
+        console.error("Failed to connect to the database:", error.message);
         throw error;
     }
 };
